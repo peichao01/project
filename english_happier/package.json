@@ -1,0 +1,12 @@
+{
+	"name": "english_happier",
+	"version": "0.0.1",
+	"description": "help to translate english easier",
+	"maintainers":[
+		"Pei Chao <peichao01@gmail.com> (http://peichao01.com)"
+	],
+	"dependencies": {
+		"jsdom": "*",
+		"async": "*"
+	}
+}

@@ -1,0 +1,11 @@
+command line arguments:
+	-s to start this app
+
+	-h view this help file
+
+	-d run as daemon [not supported now]
+
+	--autoread automatically read the word just searched.
+		usage:
+				--autoread=true
+				--autoread=false do not read it automatically
