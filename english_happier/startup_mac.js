@@ -22,6 +22,7 @@ var cmd = {
 };
 
 var clipboard_str;
+var first_time = true;
 
 exports.init = function(params){
 
@@ -33,7 +34,9 @@ setInterval(function(){
 		}
 		//sys.print('stdout: ' + stdout);
 		//第一次启动，不读出来
-		if(clipboard_str === undefined){
+		if(first_time){
+			first_time = false;
+			console.log('the first search should not be: ' + stdout + '.');
 			clipboard_str = stdout;
 			return;
 		}

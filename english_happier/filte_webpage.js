@@ -5,7 +5,7 @@ var jsdom = require('jsdom'),
 
 var reg_mp3 = /http.*\.mp3/;
 
-var jquery = fs.readFileSync('./jquery.js').toString();
+var jquery = fs.readFileSync(__dirname + '/jquery.js').toString();
 
 var getDownloadCmd = function(url, outputname){
 	var cmd;

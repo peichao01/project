@@ -20,7 +20,7 @@ var cmd = {
 };
 
 if(args.length === 0 || args.indexOf(cmd.help) >= 0){
-	var manFile = fs.readFileSync('./man.txt').toString();
+	var manFile = fs.readFileSync(__dirname + '/man.txt').toString();
 	console.log(manFile);
 	process.exit(0);
 }
