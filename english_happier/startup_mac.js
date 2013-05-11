@@ -21,7 +21,7 @@ var cmd = {
 	}
 };
 
-var clipboard_str = '';
+var clipboard_str;
 
 exports.init = function(params){
 
@@ -32,6 +32,11 @@ setInterval(function(){
 			console.log('exec error: ' + error);
 		}
 		//sys.print('stdout: ' + stdout);
+		//第一次启动，不读出来
+		if(clipboard_str === undefined){
+			clipboard_str = stdout;
+			return;
+		}
 		if(stdout != clipboard_str){
 			clipboard_str = stdout;
 			if(!isAvaliableWord(stdout)) return;
