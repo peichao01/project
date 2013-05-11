@@ -8,8 +8,12 @@ var child;
 var cmd = {
 	copy: 'pbcopy',
 	paste: 'pbpaste',
+	getIcibaUrl: function(word){
+		var url = 'http://www.iciba.com/' + word;
+		return url.replace(/\s/g, '_');
+	},
 	searchWord: function(word){
-		return 'python -m webbrowser -t http://www.iciba.com/' + word;
+		return 'python -m webbrowser -t ' + this.getIcibaUrl(word);
 	}
 };
 
