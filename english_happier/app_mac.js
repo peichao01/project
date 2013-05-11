@@ -9,7 +9,7 @@ var cmd = {
 	copy: 'pbcopy',
 	paste: 'pbpaste',
 	getIcibaUrl: function(word){
-		var url = 'http://www.iciba.com/' + word;
+		var url = 'http://www.iciba.com/' + encodeURI(word);
 		return url.replace(/\s/g, '_');
 	},
 	searchWord: function(word){
@@ -45,8 +45,11 @@ setInterval(function(){
 function isAvaliableWord(str){
 	var re = true;
 	for(var i = 0, len = str.length; i<len; i++){
-		var c = str[i];
-		if(c.charCodeAt() >= 256 || c=='/'){
+		var c = str[i], ascii = c.charCodeAt();
+		//if(c.charCodeAt() >= 256 || c=='/'){
+		//特殊符号去除
+		if(ascii >= 33 && ascii <= 64){
+			console.log(c, ascii);
 			re = false;
 			break;
 		}
