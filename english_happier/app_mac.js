@@ -28,7 +28,7 @@ setInterval(function(){
 			//只能是英文字母和空格
 			//if(!stdout.match(/^[a-zA-Z\s+]$/)) return;
 			//只能是ascii 字符
-			if(!allIsAscii(stdout)) return;
+			if(!isAvaliableWord(stdout)) return;
 			exec(cmd.searchWord(stdout), function(error, _out, _err){
 				if(error !== null){
 					console.log('search '+stdout+' failed: ' + error);
@@ -38,10 +38,11 @@ setInterval(function(){
 	});
 }, 100);
 
-function allIsAscii(str){
+function isAvaliableWord(str){
 	var re = true;
 	for(var i = 0, len = str.length; i<len; i++){
-		if(str[i].charCodeAt() >= 256){
+		var c = str[i];
+		if(c.charCodeAt() >= 256 || c=='/'){
 			re = false;
 			break;
 		}
